@@ -680,19 +680,14 @@
         // 参考ペース表の生成
         function generateReferenceTable() {
             const tbody = document.getElementById('reference-tbody');
-            const paces = [
-                { min: 3, sec: 0 },
-                { min: 3, sec: 20 },
-                { min: 3, sec: 40 },
-                { min: 4, sec: 0 },
-                { min: 4, sec: 20 },
-                { min: 4, sec: 30 },
-                { min: 4, sec: 40 },
-                { min: 5, sec: 0 },
-                { min: 5, sec: 20 },
-                { min: 5, sec: 40 },
-                { min: 6, sec: 0 },
-            ];
+            // 3分から6分まで10秒刻みでペースを生成
+            const paces = [];
+            for (let totalSec = 180; totalSec <= 360; totalSec += 10) {
+                paces.push({
+                    min: Math.floor(totalSec / 60),
+                    sec: totalSec % 60
+                });
+            }
 
             paces.forEach(pace => {
                 const paceSeconds = pace.min * 60 + pace.sec;
