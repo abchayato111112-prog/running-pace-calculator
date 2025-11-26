@@ -459,12 +459,12 @@
             <div class="input-group">
                 <div class="input-field">
                     <label>1kmペース（分）</label>
-                    <input type="number" id="pace-min" placeholder="5" min="0" max="30">
+                    <input type="number" id="pace-min" placeholder="5" min="0" max="30" value="5">
                 </div>
                 <span class="separator">:</span>
                 <div class="input-field">
                     <label>（秒）</label>
-                    <input type="number" id="pace-sec" placeholder="00" min="0" max="59">
+                    <input type="number" id="pace-sec" placeholder="00" min="0" max="59" value="0">
                 </div>
             </div>
 
@@ -717,6 +717,7 @@
 
         // 初期化
         generateReferenceTable();
+        calculateFromPace();
         calculateFromMarathon();
         calculateFromTrack();
     </script>
